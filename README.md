@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+VectorShift Pipeline Builder
+Build and analyze AI pipelines interactively. Validate structure, detect cycles, and explore Node-based workflows visually in React and FastAPI.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 Overview
+VectorShift Pipeline Builder lets you visually create, connect, and analyze data pipelines with drag-and-drop nodes. The backend validates pipeline structure, counts nodes and edges, and checks for cycles (DAG validation).
 
-## Available Scripts
+Frontend: Modern React (with ReactFlow, Zustand) for fast, interactive diagram editing.
 
-In the project directory, you can run:
+Backend: FastAPI Python server for pipeline analysis and DAG validation.
 
-### `npm start`
+🛠️ Features
+Node-based Pipeline Editor — Drag-and-drop interface for designing workflows.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Text Node Variables — Dynamic handles for {{variable}} detection in text.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Backend API — Fast analysis of pipelines; responds with stats and DAG status.
 
-### `npm test`
+DAG Detection — Warns if there are cycles in your pipeline.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Responsive Design — Always-visible submit and intuitive UI.
 
-### `npm run build`
+Detailed Feedback — Real-time alert shows nodes/edges and DAG result after submit.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📦 Installation & Local Setup
+1. Clone the Repo
+text
+git clone https://github.com/your-username/vectorshift-pipeline-builder.git
+cd vectorshift-pipeline-builder
+2. Setup Backend
+text
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+3. Setup Frontend
+text
+cd ../frontend
+npm install
+npm start
+Frontend: http://localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Backend API: http://localhost:8000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+💡 Usage
+Add nodes by dragging from the left toolbar.
 
-### `npm run eject`
+Connect nodes to form your pipeline (edges).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Edit Text nodes — Type {{variable}} inside to create input handles.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Click "Submit" to send pipeline data to the backend.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Review analysis — an alert will display node/edge counts and DAG validity.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🧩 API Docs
+POST /pipelines/parse
 
-## Learn More
+Request: { nodes: [...], edges: [...] }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Response: { num_nodes, num_edges, is_dag /* plus details */ }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+See interactive docs at http://localhost:8000/docs
 
-### Code Splitting
+🏗️ Contributing
+Pull requests and suggestions welcome!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open issues
 
-### Analyzing the Bundle Size
+See CONTRIBUTING.md for guidelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+👥 Credits
+Frontend by Your Name
 
-### Making a Progressive Web App
+Backend by Your Name
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Tutorials, references:
 
-### Advanced Configuration
+VectorShift Tutorials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ReactFlow
 
-### Deployment
+FastAPI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📄 License
+Distributed under the MIT License. See LICENSE for details.
